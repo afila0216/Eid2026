@@ -134,7 +134,7 @@
       font-family: 'Noto Nastaliq Urdu', serif;
       font-size: clamp(2rem, 6vw, 4rem);
       color: var(--gold);
-      margin: 8px 0 24px;
+      margin: 8px 0 240px;
       text-shadow: 0 0 30px #f5c518aa, 0 2px 8px rgba(0,0,0,0.9);
       direction: rtl;
     }
@@ -294,7 +294,7 @@
       vid.volume = 1;
       btn.textContent = vid.muted ? '🔇' : '🔊';
     }
-    // Try to autoplay with sound — works if browser allows it
+
     vid.muted = false;
     vid.play().catch(() => { vid.muted = true; });
   </script>
@@ -323,21 +323,12 @@
     <!-- MEME CARD -->
     <div class="meme-card">
       <p class="meme-text">
-        Pehle daali <span class="highlight"> tere chehre pe </span>bhot der nazar <br>
+        Pehle daali <span class="highlight"> tumhare chehre pe </span>bhot der nazar <br>
         Eid ka chand to phir <br> baad mai dekha maine 😭😭😭😭<br>
         <span class="urdu">ہم نے تمہیں دیکھا نہیں کیا اید منائیں</span>
         <span class="urdu">جس نے تمہیں دیکھا ہو اسے اید مبارک</span>
       </p>
     </div>
-
-    <!-- =============================================
-         YOUTUBE SONG SECTION
-         1. Find your song on YouTube
-         2. Copy just the video ID from the URL
-            e.g. youtube.com/watch?v=dQw4w9WgXcQ → ID is dQw4w9WgXcQ
-         3. Replace YOUR_VIDEO_ID_HERE below with that ID
-         4. Change the caption text to match your vibe
-    =============================================== -->
     <div class="yt-section">
       <div style="font-family:'Fredoka One',cursive; color:#f5c518; 
       font-size:1.1rem; margin-bottom:10px; letter-spacing:1px;">Mood Right Now ??</div>
