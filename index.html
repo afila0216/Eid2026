@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eid Mubarak 🌙</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Reem+Kufi:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --green: #1a7a3c;
+      --gold: #f5c518;
+      --dark: #0a1f12;
+      --cream: #fdf6e3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Fredoka One', cursive;
+      overflow-x: hidden;
+      min-height: 100vh;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ctext y='28' font-size='28'%3E🌙%3C/text%3E%3C/svg%3E"), auto;
+    }
+
+    .bg-video {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100vw;
+      min-height: 100vh;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+      object-position: center center;
+      z-index: -2;
+    }
+
+    /* Dark overlay so text stays readable over any video */
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(10,31,18,0.45) 50%,
+        rgba(0,0,0,0.65) 100%
+      );
+      z-index: -1;
+    }
+
+    /* LANTERNS */
+    .lanterns {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-around;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .lantern {
+      font-size: 2.5rem;
+      animation: sway 3s ease-in-out infinite alternate;
+      transform-origin: top center;
+      filter: drop-shadow(0 4px 12px #f5c51888);
+    }
+    .lantern:nth-child(2) { animation-delay: 0.5s; }
+    .lantern:nth-child(3) { animation-delay: 1s; }
+    .lantern:nth-child(4) { animation-delay: 1.5s; }
+    .lantern:nth-child(5) { animation-delay: 0.8s; }
+    @keyframes sway {
+      from { transform: rotate(-8deg); }
+      to   { transform: rotate(8deg); }
+    }
+
+    /* ROPE */
+    .rope {
+      position: fixed;
+      top: 30px;
+      left: 0; right: 0;
+      height: 3px;
+      background: repeating-linear-gradient(90deg, #8B5E3C 0px, #8B5E3C 20px, transparent 20px, transparent 30px);
+      z-index: 2;
+    }
+
+    /* MAIN CONTENT */
+    .container {
+      position: relative;
+      z-index: 4;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 110px 20px 80px;
+      text-align: center;
+    }
+
+    /* MOON */
+    .moon-wrap {
+      animation: floatMoon 4s ease-in-out infinite;
+      margin-bottom: 10px;
+    }
+    @keyframes floatMoon {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-15px); }
+    }
+    .moon {
+      font-size: 7rem;
+      filter: drop-shadow(0 0 40px #f5c518cc);
+    }
+
+    /* TITLE */
+    .eid-title {
+      font-family: 'Reem Kufi', sans-serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #f5c518, #fff176, #f5c518, #ffa000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      animation: shimmer 2.5s linear infinite;
+      background-size: 200% auto;
+      text-shadow: none;
+      filter: drop-shadow(0 2px 18px rgba(0,0,0,0.8));
+    }
+    @keyframes shimmer {
+      0%   { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .mubarak {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      font-size: clamp(2rem, 6vw, 4rem);
+      color: var(--gold);
+      margin: 8px 0 24px;
+      text-shadow: 0 0 30px #f5c518aa, 0 2px 8px rgba(0,0,0,0.9);
+      direction: rtl;
+    }
+
+    /* MEME CARD */
+    .meme-card {
+      background: rgba(10, 31, 18, 0.72);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: 24px 32px;
+      max-width: 520px;
+      width: 100%;
+      margin: 0 0 32px;
+      position: relative;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 0 40px #f5c51822, inset 0 0 20px #ffffff06;
+    }
+    .meme-card::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #f5c518, #1a7a3c, #f5c518);
+      z-index: -1;
+      animation: borderSpin 4s linear infinite;
+      background-size: 200%;
+    }
+    @keyframes borderSpin {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+    .meme-text {
+      font-size: 1.25rem;
+      color: var(--cream);
+      line-height: 1.75;
+    }
+    .meme-text .highlight {
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+    .meme-text .urdu {
+      font-family: 'Noto Nastaliq Urdu', serif;
+      direction: rtl;
+      display: block;
+      font-size: 1.5rem;
+      margin-top: 8px;
+      color: #a8e6c4;
+    }
+
+    /* YOUTUBE SECTION */
+    .yt-section {
+      width: 100%;
+      max-width: 560px;
+      margin-bottom: 32px;
+    }
+    .yt-section-label {
+      font-size: 0.8rem;
+      color: #f5c51899;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .yt-vibe-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #cc0000;
+      color: #fff;
+      font-size: 0.78rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .yt-pulse-dot {
+      width: 7px; height: 7px;
+      background: #fff;
+      border-radius: 50%;
+      animation: ytPulse 1s ease-in-out infinite alternate;
+    }
+    @keyframes ytPulse { from { opacity: 1; } to { opacity: 0.2; } }
+
+    .yt-embed-wrap {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid #ff000066;
+      box-shadow: 0 0 40px #ff000033, 0 0 0 1px #ffffff11;
+      background: #000;
+    }
+    .yt-embed-wrap iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: block;
+      border: none;
+    }
+    .yt-caption {
+      margin-top: 10px;
+      color: #f5c518aa;
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    .footer {
+      margin-top: 8px;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.8rem;
+    }
+    .footer span { color: var(--gold); }
+
+    /* TICKER */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(26,122,60,0.88);
+      backdrop-filter: blur(6px);
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      z-index: 10;
+      border-top: 2px solid var(--gold);
+    }
+    .ticker {
+      display: inline-block;
+      white-space: nowrap;
+      animation: tickerMove 28s linear infinite;
+      font-size: 1.05rem;
+      color: var(--gold);
+    }
+    @keyframes tickerMove {
+      from { transform: translateX(100vw); }
+      to   { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+
+
+  <video class="bg-video" id="bgVideo" src="Eid.mp4" autoplay muted loop playsinline></video>
+
+  <!-- Unmute button — always visible in corner -->
+  <button id="muteBtn" onclick="toggleMute()" style="
+    position: fixed; top: 16px; right: 16px; z-index: 50;
+    background: rgba(10,31,18,0.75); border: 1.5px solid #f5c518;
+    color: #f5c518; font-size: 1.4rem;
+    width: 48px; height: 48px; border-radius: 50%;
+    cursor: pointer; backdrop-filter: blur(8px);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  " title="Toggle sound">🔇</button>
+
+  <script>
+    const vid = document.getElementById('bgVideo');
+    const btn = document.getElementById('muteBtn');
+    function toggleMute() {
+      vid.muted = !vid.muted;
+      vid.volume = 1;
+      btn.textContent = vid.muted ? '🔇' : '🔊';
+    }
+    // Try to autoplay with sound — works if browser allows it
+    vid.muted = false;
+    vid.play().catch(() => { vid.muted = true; });
+  </script>
+  <div class="bg-overlay"></div>
+
+  <!-- ROPE & LANTERNS -->
+  <div class="rope"></div>
+  <div class="lanterns">
+    <div class="lantern">🏮</div>
+    <div class="lantern">🏮</div>
+    <div class="lantern">🌙</div>
+    <div class="lantern">🏮</div>
+    <div class="lantern">🏮</div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="container">
+
+    <div class="moon-wrap">
+      <div class="moon">🌻</div>
+    </div>
+
+    <h1 class="eid-title">EID MUBARAK!</h1>
+    <div class="mubarak">عید مبارک</div>
+
+    <!-- MEME CARD -->
+    <div class="meme-card">
+      <p class="meme-text">
+        Pehle daali <span class="highlight"> tere chehre pe </span>bhot der nazar <br>
+        Eid ka chand to phir <br> baad mai dekha maine 😭😭😭😭<br>
+        <span class="urdu">ہم نے تمہیں دیکھا نہیں کیا اید منائیں</span>
+        <span class="urdu">جس نے تمہیں دیکھا ہو اسے اید مبارک</span>
+      </p>
+    </div>
+
+    <!-- =============================================
+         YOUTUBE SONG SECTION
+         1. Find your song on YouTube
+         2. Copy just the video ID from the URL
+            e.g. youtube.com/watch?v=dQw4w9WgXcQ → ID is dQw4w9WgXcQ
+         3. Replace YOUR_VIDEO_ID_HERE below with that ID
+         4. Change the caption text to match your vibe
+    =============================================== -->
+    <div class="yt-section">
+      <div style="font-family:'Fredoka One',cursive; color:#f5c518; 
+      font-size:1.1rem; margin-bottom:10px; letter-spacing:1px;">Mood Right Now ??</div>
+      <div class="yt-embed-wrap">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/_Jm5vaIBUHI?rel=0&modestbranding=1"
+          allowfullscreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="footer">
+      Made with ❤️ for 🌻, and <span>miss you bhot zor se</span> &nbsp;•&nbsp; Eid 2026 🌙
+    </div>
+
+  </div>
+
+
+  <div class="ticker-wrap">
+    <div class="ticker">
+      EID MUBARAK! &nbsp;&nbsp;•&nbsp;&nbsp; عید مبارک &nbsp;&nbsp;•&nbsp;&nbsp; 
+      Inaya needs to deliver a parcel to Sharifa &nbsp;&nbsp;•&nbsp;&nbsp; 
+      Bhot zor se bhejna hai bechari ko &nbsp;&nbsp;•&nbsp;&nbsp;
+    </div>
+  </div>
+
+</body>
+</html>
